@@ -10,7 +10,7 @@ export const setData = (mangaData) => {
 
 export const getQuery = (query) => {
   return async (dispatch) => {
-    const res = await axios.get("https://api.mangadex.org/manga", {
+    const res = await axios.get("/cors-proxy/https://api.mangadex.org/manga", {
       params: {
         limit: 20,
         title: query || null,
