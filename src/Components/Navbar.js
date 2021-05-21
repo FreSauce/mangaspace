@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { getQuery } from "../store/actions";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -18,14 +18,14 @@ export default function Navigation() {
   };
   return (
     <Navbar expand="lg">
-      <Navbar.Brand href="#home" className="font-weight-500">
+      <Navbar.Brand as={NavLink} to="/" className="font-weight-500">
         Manga.Space
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-        <Link><Nav.Link href="#home">Home</Nav.Link></Link>
-        <Link><Nav.Link href="#link">About</Nav.Link></Link>
+        <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+        {/* <Nav.Link as={NavLink} to="/">About</Nav.Link> */}
         </Nav>
         <Form inline onSubmit={submitHandler}>
           <FormControl
