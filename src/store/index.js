@@ -1,9 +1,9 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { queryReducer } from "./reducers";
+import { mangaReducer } from "./reducers";
 
 const rootReducer = combineReducers({
-  manga: queryReducer,
+  manga: mangaReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
