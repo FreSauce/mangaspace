@@ -21,7 +21,7 @@ export const getQuery = (query) => {
         title: query || null,
       },
     });
-    let mangaData = res.data.results.map((item) => ({
+    let mangaData = res.data.results?.map((item) => ({
       id: item.data.id,
       title: item.data.attributes.title.en,
       description: item.data.attributes.description.en,
@@ -53,7 +53,7 @@ export const getManga = (id) => {
         },
       });
       total = chapList.data.total;
-      chapList.data.results.map((item) => {
+      chapList.data.results?.map((item) => {
         let item_el = {
           id: item.data.id,
           title: item.data.attributes.title,
