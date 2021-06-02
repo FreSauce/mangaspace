@@ -24,7 +24,7 @@ function App() {
                 </Route>
                 <Route path="/manga/:manid/:chapid?">
                   <Col lg={12} className="my-2">
-                    <h1>Hello</h1>
+                    <h3>Manga Details</h3>
                     <MangaDetails />
                   </Col>
                 </Route>

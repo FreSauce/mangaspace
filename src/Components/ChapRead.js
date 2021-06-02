@@ -9,7 +9,7 @@ const URL =
 
 
 
-const ChapRead = ({chapid, manid, pages, hash}) => {
+const ChapRead = ({chapid, manid, pages, hash, name}) => {
     const [base_url, setURL] = useState("");
     const getURL = async() => {
         const res = await axios.get(URL + "/at-home/server/" + chapid);
@@ -27,7 +27,7 @@ const ChapRead = ({chapid, manid, pages, hash}) => {
           <Col xs={12} md={12} lg={10} className="my-4">
             <Card className={"shadow border-0 h-100 " + classes.card}>
               <Card.Header className="bg-transparent border-0">
-                <Card.Title>Chapter id {chapid}</Card.Title>
+                <Card.Title>{name}</Card.Title>
               </Card.Header>
               <Card.Body>
                 {pages.map(page =>(

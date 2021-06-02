@@ -22,7 +22,7 @@ const MangaDetails = () => {
   if (chapid) 
   {
     return(
-      <ChapRead chapid={chapid} manid={id} pages={mangaDetails.chapList[chapid].pages} hash={mangaDetails.chapList[chapid].hash}/>
+      <ChapRead chapid={chapid} manid={id} pages={mangaDetails.chapList[chapid].pages} hash={mangaDetails.chapList[chapid].hash} name={"Chapter "+mangaDetails.chapList[chapid].chapter+" " + mangaDetails.chapList[chapid].title}/>
     );
   }
   return (
@@ -35,10 +35,7 @@ const MangaDetails = () => {
             </Card.Header>
             <Card.Body>
               <Card.Text>
-                {mangaDetails.description.substring(
-                  0,
-                  mangaDetails.description.indexOf("[")
-                )}
+                {mangaDetails.description.split("[")[0]}
               </Card.Text>
             </Card.Body>
           </Card>
