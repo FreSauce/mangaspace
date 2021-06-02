@@ -18,14 +18,20 @@ export const getQuery = (query) => {
     const res = await axios.get(URL + "/manga", {
       params: {
         limit: 20,
-        title: query || null,
+        title: query || null
       },
     });
+    let mangaids = []
     let mangaData = res.data.results?.map((item) => ({
       id: item.data.id,
       title: item.data.attributes.title.en,
       description: item.data.attributes.description.en,
     }));
+    mangaData.map((item) => 
+    {
+      mangaids.push(item.id)
+      return true;
+    })
     dispatch(setData(mangaData));
   };
 };
@@ -41,7 +47,7 @@ export const getManga = (id) => {
   return async (dispatch) => {
     const res = await axios.get(URL + "/manga/" + id);
     let i = 0;
-    let chapters = [];
+    let chapters = {};
     let total = 0;
     do {
       const chapList = await axios.get(URL +"/manga/" + id + "/feed", {
@@ -49,7 +55,7 @@ export const getManga = (id) => {
           'order[chapter]': "desc",
           limit: 500,
           offset: 500 * i,
-          "locales[0]" :"en"
+          translatedLanguage :["en"]
         },
       });
       total = chapList.data.total;
@@ -60,8 +66,9 @@ export const getManga = (id) => {
           volume: item.data.attributes.volume,
           chapter: item.data.attributes.chapter,
           pages: item.data.attributes.dataSaver,
+          hash: item.data.attributes.hash
         };
-        chapters.push(item_el);
+        chapters[item_el.id]=item_el;
         return true;
       });
       i += 1;

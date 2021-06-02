@@ -22,7 +22,7 @@ function App() {
                     <MangaTitles />
                   </Col>
                 </Route>
-                <Route path="/manga/:id">
+                <Route path="/manga/:manid/:chapid?">
                   <Col lg={12} className="my-2">
                     <h1>Hello</h1>
                     <MangaDetails />
