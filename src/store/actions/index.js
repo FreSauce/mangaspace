@@ -1,10 +1,10 @@
 import axios from "axios";
 export const SET_DATA = "SET_DATA";
 export const SET_MANGA = "SET_MANGA";
-const URL =
-  process.env.NODE_ENV === "development"
-    ? "https://api.mangadex.org"
-    : "/cors-proxy/https://api.mangadex.org";
+const URL = "https://api.mangadex.org";
+  // process.env.NODE_ENV === "development"
+  //   ? "https://api.mangadex.org"
+  //   : "/cors-proxy/https://api.mangadex.org";
 
 export const setData = (mangaData) => {
   return {
