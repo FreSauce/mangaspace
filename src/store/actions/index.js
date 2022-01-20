@@ -20,6 +20,7 @@ export const getQuery = (query) => {
         limit: 20,
         title: query || null
       },
+      withCredentials: true,
     });
     let mangaids = []
     let mangaData = res.data.results?.map((item) => ({
